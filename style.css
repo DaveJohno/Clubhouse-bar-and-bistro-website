@@ -1,0 +1,352 @@
+:root {
+  --ff-body: "Kaisei Decol", serif;
+  --ff-heading: "Inter", sans-serif;
+
+  /* --clr-primary-400: hsl(60 100% 50%);
+  --clr-neutral-900: hsl(0 0% 0%);
+  --clr-neutral-100: hsl(0 0% 100%); */
+
+  --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
+  --fs-600: 2rem;
+  --fs-400: 1rem;
+
+  --fs-card-heading: 26px;
+  --fs--heading: clamp(1.625rem, 5vw + 1rem, 3rem);
+  --fs-subheading: clamp(1.125rem, 5vw + 1rem, 2.5rem);
+  --fs-body: 1rem;
+}
+
+@media (min-width: 40em) {
+  :root {
+    --fs-600: 3rem;
+    --fs-400: 1.125rem;
+  }
+}
+
+.heading-text {
+  font-size: var(--fs-heading);
+  font-family: var(--ff-heading);
+}
+
+.body-text {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  font-weight: 400;
+  color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #231f20;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Default styles for the header */
+header {
+  position: relative;
+  color: #fff;
+  z-index: 3;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    background-color: #231f20;
+  }
+}
+
+.header-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .header-container {
+    padding: 1rem;
+  }
+}
+
+.logo {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.logo img {
+  height: 100%;
+  max-height: 50px;
+}
+
+nav {
+  position: relative;
+  display: none;
+  width: 100%;
+  margin-top: 1rem;
+  z-index: 2;
+  font-family: var(--ff-heading);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav .nav-links li .logo {
+  display: none;
+}
+
+nav.show {
+  position: fixed;
+  display: block;
+  flex-direction: column;
+  margin: 0;
+  padding: 1rem;
+  top: 0rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+}
+
+nav.show .nav-links {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+nav.show .nav-links li:first-child {
+  display: flex;
+  align-self: center;
+  margin: 2rem;
+  margin-top: -2rem;
+}
+
+/* show the logo in the nav once hamburger is clicked */
+nav.show .nav-links li .logo {
+  display: block;
+  justify-self: flex-start;
+}
+
+nav.show .nav-links a {
+  font-size: var(--fs-600);
+}
+
+.nav-links li {
+  margin: 0.5rem 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.hamburger-menu {
+  position: fixed;
+  right: 0;
+  display: block;
+  cursor: pointer;
+  margin-right: 1rem;
+  z-index: 2;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+/* Media query for Header desktop-sized screens */
+@media screen and (min-width: 768px) {
+  .header-container {
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  nav {
+    display: flex;
+    width: auto;
+    margin: 0;
+  }
+
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links li {
+    margin: 0 1rem;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+section.main-slider {
+  position: relative;
+  margin-top: calc(-56px - 4rem);
+  height: 100vh; /* height fallback */
+  height: 100svh;
+  width: 100%;
+  background-color: #00ffff;
+  z-index: 0;
+}
+
+section.info-snippet-section {
+  width: 100%;
+  margin: 3rem 0 3rem 0;
+}
+section.info-snippet-section .info-snippet {
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 clamp(50px, 10%, 50px);
+  text-align: center;
+}
+
+section.info-snippet-section .info-snippet:first-child {
+  padding-bottom: 1rem;
+}
+
+section.cards {
+  height: auto;
+}
+
+section.cards .card-tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: var(--ff-heading);
+  background-color: #231f20;
+  color: #ffffff35;
+  height: 65px;
+}
+
+@media screen and (min-width: 768px) {
+  section.cards .card-tabs {
+    display: none;
+  }
+}
+
+.card-tabs .card-tab-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+.card-tabs .card-tab-heading.active {
+  background-color: #2e2a2b;
+  color: #fff;
+}
+
+div.card {
+  display: none;
+  flex-direction: column;
+  background: #2e2a2b;
+}
+
+div.card.active {
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  div.card {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 2rem;
+  }
+
+  div.card:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+div.card img.card-img {
+  margin-top: 0;
+  padding: 0;
+  height: 33vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  div.card img.card-img {
+    margin-top: 0;
+    padding: 0;
+    height: 45vh;
+    width: 60vw;
+    object-fit: cover;
+  }
+}
+
+div.card div.card-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(67vh - 65px);
+}
+
+@media screen and (min-width: 768px) {
+  div.card div.card-info {
+    padding: 3rem;
+    justify-content: center;
+    height: 45vh;
+    width: 40vw;
+  }
+}
+
+.card-heading {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: var(--ff-body);
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.card-sub-heading {
+  font-size: 18px;
+  font-family: var(--ff-body);
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.card-body {
+  font-size: 16px;
+  font-family: var(--ff-heading);
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.card-body:first-of-type {
+  font-family: var(--ff-body);
+}
+
+section.test {
+  width: 100%;
+  font-size: larger;
+  padding: 0 25%;
+  color: #fff;
+  background-color: #333;
+}
