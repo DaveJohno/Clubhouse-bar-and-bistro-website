@@ -210,6 +210,14 @@ section.main-slider {
   z-index: 0;
 }
 
+@media screen and (min-width: 768px) {
+  section.main-slider {
+    position: relative;
+    margin-top: 0;
+    height: calc(100vh - 88px);
+  }
+}
+
 section.info-snippet-section {
   width: 100%;
   margin: 3rem 0 3rem 0;
@@ -218,12 +226,18 @@ section.info-snippet-section .info-snippet {
   margin: auto;
   width: 100%;
   max-width: 600px;
-  padding: 0 clamp(50px, 10%, 50px);
+  padding: 1.5rem 1.5rem;
   text-align: center;
 }
 
+@media screen and (min-width: 768px) {
+  section.info-snippet-section .info-snippet {
+    padding: 1.5rem 4rem;
+  }
+}
+
 section.info-snippet-section .info-snippet:first-child {
-  padding-bottom: 1rem;
+  padding-bottom: 0;
 }
 
 section.cards {
@@ -288,6 +302,7 @@ div.card img.card-img {
   height: 33vh;
   width: 100%;
   object-fit: cover;
+  mix-blend-mode: luminosity;
 }
 
 @media screen and (min-width: 768px) {
@@ -304,24 +319,34 @@ div.card div.card-info {
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: calc(67vh - 65px);
 }
 
 @media screen and (min-width: 768px) {
   div.card div.card-info {
-    padding: 3rem;
+    padding: 2rem;
     justify-content: center;
     height: 45vh;
     width: 40vw;
   }
 }
 
-.card-heading {
+@media screen and (min-width: 1200px) {
+  div.card div.card-info {
+    padding: 5rem;
+    justify-content: center;
+    height: 45vh;
+    width: 40vw;
+  }
+}
+
+.card-info .card-heading {
   font-size: 26px;
   font-weight: 700;
   font-family: var(--ff-body);
   color: #fff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-sub-heading {
@@ -331,15 +356,15 @@ div.card div.card-info {
   margin-bottom: 0.5rem;
 }
 
-.card-body {
+.card-info .card-body {
   font-size: 16px;
   font-family: var(--ff-heading);
   font-weight: 300;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.card-body:first-of-type {
+.card-info .card-body:first-of-type {
   font-family: var(--ff-body);
 }
 
